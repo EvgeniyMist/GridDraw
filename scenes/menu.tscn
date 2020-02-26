@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/menu.gd" type="Script" id=1]
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -700.0
+rect_min_size = Vector2( 300, 600 )
+rect_pivot_offset = Vector2( 73.8828, 122.671 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cell_size_b" type="Button" parent="."]
+margin_left = 190.0
+margin_top = 30.0
+margin_right = 290.0
+margin_bottom = 65.0
+text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cell_size_l" type="Label" parent="."]
+margin_left = 10.0
+margin_top = 40.0
+margin_right = 120.0
+margin_bottom = 55.0
+text = "Size of one cell ="
+
+[node name="cell_size_e" type="LineEdit" parent="."]
+margin_left = 125.0
+margin_top = 30.0
+margin_right = 185.0
+margin_bottom = 65.0
+text = "50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_color_b" type="Button" parent="."]
+margin_left = 190.0
+margin_top = 165.0
+margin_right = 290.0
+margin_bottom = 200.0
+text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_color_l" type="Label" parent="."]
+margin_left = 10.0
+margin_top = 175.0
+margin_right = 80.0
+margin_bottom = 190.0
+text = "Line color = "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_color_e" type="LineEdit" parent="."]
+margin_left = 90.0
+margin_top = 165.0
+margin_right = 185.0
+margin_bottom = 200.0
+text = "0, 0, 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_width_b" type="Button" parent="."]
+margin_left = 190.0
+margin_top = 300.0
+margin_right = 290.0
+margin_bottom = 335.0
+text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_width_l" type="Label" parent="."]
+margin_left = 10.0
+margin_top = 310.0
+margin_right = 80.0
+margin_bottom = 325.0
+text = "Line width = "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_width_e" type="LineEdit" parent="."]
+margin_left = 92.0
+margin_top = 300.0
+margin_right = 185.0
+margin_bottom = 335.0
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
