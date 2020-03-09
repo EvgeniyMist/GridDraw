@@ -15,8 +15,18 @@ func _calcul_distance(x1, y1, x2, y2):
 
 
 func _change_cell_size(new_cell_size):
+	_redraw_grid(new_cell_size)
+	# redraw lines
+	var lines_group = get_tree().get_nodes_in_group("lines")
+	var menu_vec = Vector2($menu.get_rect().size.x, 0)
+	for line in lines_group:
+		var points = line.get_points()
+		for i in range(len(points)):
+			points[i] = ((points[i] - menu_vec) * new_cell_size / cell_size +
+						 menu_vec)
+		line.set_points(points)
+	# change cell size
 	cell_size = new_cell_size
-	_redraw_grid()
 
 
 func _change_l_color(new_l_color):
@@ -32,12 +42,13 @@ func _is_event_in_grid(event):
 	return (event.position.x > menu_rect.size.x + menu_rect.position.x and
 			event.position.y > menu_rect.position.y)
 
-func _redraw_grid():
+
+func _redraw_grid(new_cell_size=cell_size):
 	$grid.redraw_grid($menu.get_rect().size.x + $menu.get_rect().position.x,
 					  $menu.get_rect().position.y,
 					  get_viewport_rect().size.x,
 					  get_viewport_rect().size.y,
-					  cell_size)
+					  new_cell_size)
 
 
 func _input(event):
@@ -75,9 +86,30 @@ func _input(event):
 			# break the line at the last node
 			var last_node = lines_group.back().get_points()[-2]
 			lines_group.back().change_last_point(last_node)
+	elif event is InputEventKey and event.pressed:
+		var str_scancode = OS.get_scancode_string(event.scancode)
+		var change = Vector2(0, 0)
+		# determine in which way "step" was made
+		if str_scancode == "Right":
+			change.x = -cell_size
+		elif str_scancode == "Left":
+			change.x = cell_size
+		elif str_scancode == "Down":
+			change.y = -cell_size
+		elif str_scancode == "Up":
+			change.y = cell_size
+		else:
+			return
+		# redraw lines
+		for line in lines_group:
+			var points = line.get_points()
+			for i in range(len(points)):
+				points[i] += change
+			line.set_points(points)
 
 
 func _ready():
+	get_tree().get_root().connect("size_changed", self, "_redraw_grid")
 	pass
 
 

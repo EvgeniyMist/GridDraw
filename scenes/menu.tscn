@@ -1,19 +1,35 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/menu.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.509804, 0.509804, 0.784314, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color( 0.27451, 0.27451, 1, 1 )
 
 [node name="menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -700.0
-rect_min_size = Vector2( 300, 600 )
 rect_pivot_offset = Vector2( 73.8828, 122.671 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="cell_size_b" type="Button" parent="."]
+[node name="bg" type="Panel" parent="."]
+margin_right = 300.0
+margin_bottom = 600.0
+size_flags_vertical = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cell_size_b" type="Button" parent="bg"]
 margin_left = 190.0
 margin_top = 30.0
 margin_right = 290.0
@@ -23,14 +39,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="cell_size_l" type="Label" parent="."]
+[node name="cell_size_l" type="Label" parent="bg"]
 margin_left = 10.0
 margin_top = 40.0
 margin_right = 120.0
 margin_bottom = 55.0
 text = "Size of one cell ="
 
-[node name="cell_size_e" type="LineEdit" parent="."]
+[node name="cell_size_e" type="LineEdit" parent="bg"]
 margin_left = 125.0
 margin_top = 30.0
 margin_right = 185.0
@@ -40,7 +56,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="l_color_b" type="Button" parent="."]
+[node name="l_color_b" type="Button" parent="bg"]
 margin_left = 190.0
 margin_top = 165.0
 margin_right = 290.0
@@ -50,17 +66,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="l_color_l" type="Label" parent="."]
+[node name="l_color_l" type="Label" parent="bg"]
 margin_left = 10.0
 margin_top = 175.0
-margin_right = 80.0
+margin_right = 89.0
 margin_bottom = 190.0
 text = "Line color = "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="l_color_e" type="LineEdit" parent="."]
+[node name="l_color_e" type="LineEdit" parent="bg"]
 margin_left = 90.0
 margin_top = 165.0
 margin_right = 185.0
@@ -70,7 +86,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="l_width_b" type="Button" parent="."]
+[node name="l_width_b" type="Button" parent="bg"]
 margin_left = 190.0
 margin_top = 300.0
 margin_right = 290.0
@@ -80,21 +96,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="l_width_l" type="Label" parent="."]
+[node name="l_width_l" type="Label" parent="bg"]
 margin_left = 10.0
 margin_top = 310.0
-margin_right = 80.0
+margin_right = 92.0
 margin_bottom = 325.0
 text = "Line width = "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="l_width_e" type="LineEdit" parent="."]
+[node name="l_width_e" type="LineEdit" parent="bg"]
 margin_left = 92.0
 margin_top = 300.0
 margin_right = 185.0
 margin_bottom = 335.0
+custom_colors/font_color_uneditable = Color( 0.54902, 0, 0, 1 )
 text = "2"
 __meta__ = {
 "_edit_use_anchors_": false

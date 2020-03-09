@@ -1,12 +1,14 @@
-26.02.2020
 TODO:
 	1) Add blocking of decreasing window size after reaching menu size
-	2) Change the binding mechanism of nodes
-	Now there is binding to a specific pixel,
-	but there is necessity for binding to a specific point on the coordinate plane
-	3) Add the ability to paint over limited areas
-	4) Add save and load functions
-	5) Add the ability to scale the grid, but not just change cell size, and move in it
-	So user can draw a small part of picture in one part of the grid, then
-	zoom out and go to another part of the grid, and after that zoom in for the next drawing
-	6) Improve line quality (form of first and last points, spatial anti-aliasing)
+	2) Add the ability to paint over limited areas
+	3) Add save and load functions
+	4) Improve line quality (form of first and last points, spatial anti-aliasing)
+26.02.2020
+	Add initial TODO
+09.03.2020
+	The binding mechanism of nodes was changed
+	The ability to scale the grid was added
+	Fixed no increase in the grid size after increasing the window size
+	Simple menu decor was added (not just for beauty, but for
+	preventing the possibility of drawing lines in the menu)
+
